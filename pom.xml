@@ -9,11 +9,11 @@
     <name>testaws</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.version>3.3</maven.compiler.version>
         <maven.compiler.plugin>3.8.0</maven.compiler.plugin>
-        <scala.version>2.12.2</scala.version>
+        <scala.version>2.12.10</scala.version>
         <spark.core.version>2.4.0</spark.core.version>
     </properties>
     <dependencies>
@@ -42,8 +42,8 @@
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-hive_2.10</artifactId>
-            <version>2.2.3</version>
+            <artifactId>spark-hive_2.12</artifactId>
+            <version>${spark.core.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -56,6 +56,13 @@
             <artifactId>spark-sql_2.12</artifactId>
             <version>${spark.core.version}</version>
         </dependency>
+        <dependency>
+            <artifactId>janino</artifactId>
+            <groupId>org.codehaus.janino</groupId>
+            <version>3.0.8</version>
+        </dependency>
+
+
     </dependencies>
     <build>
         <pluginManagement>
@@ -70,7 +77,7 @@
             <plugin>
                 <groupId>org.scalatest</groupId>
                 <artifactId>scalatest-maven-plugin</artifactId>
-                <version>1.0</version>
+                <version>2.0.0</version>
                 <executions>
                     <execution>
                         <id>test</id>
