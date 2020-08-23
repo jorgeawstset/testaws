@@ -1,38 +1,35 @@
-<workflow-app name="TEST AWS FLOW" xmlns="uri:oozie:workflow:0.3">
-
-<start to="RUNHIVE"/>
+<workflow-app name="TESTAWSFLOW" xmlns="uri:oozie:workflow:0.4">
+    <global>
+        <job-tracker>${jobtracker}</job-tracker>
+        <name-node>${namenode}</name-node>
+    </global>
+    <start to="RUNHIVE"/>
     <action name="RUNHIVE">
         <hive2 xmlns="uri:oozie:hive2-action:1.0">
-<!--            <resource-manager>[RESOURCE-MANAGER]</resource-manager>-->
-<!--            <job-tracker>[JOB-TRACKER]</job-tracker>-->
-            <name-node>[NAME-NODE]</name-node>
-            <prepare>
-                <delete path="[PATH]"/>
-                <mkdir path="[PATH]"/>
-            </prepare>
-            <job-xml>[HIVE SETTINGS FILE]</job-xml>
-            <configuration>
-                <property>
-                    <name>[PROPERTY-NAME]</name>
-                    <value>[PROPERTY-VALUE]</value>
-                </property>
-            </configuration>
-            <jdbc-url>[jdbc:hive2://HOST:10000/default]</jdbc-url>
-            <password>[PASS]</password>
-            <script>[HIVE-SCRIPT]</script>
-            <param>[PARAM-VALUE]</param>
-            <param>[PARAM-VALUE]</param>
-            <argument>[ARG-VALUE]</argument>
-            <argument>[ARG-VALUE]</argument>
-            <file>[FILE-PATH]</file>
-            <archive>[FILE-PATH]</archive>
+            <!--            <resource-manager>[RESOURCE-MANAGER]</resource-manager>-->
+            <!--            <job-tracker>[JOB-TRACKER]</job-tracker>-->
+            <!--            <job-xml>[HIVE SETTINGS FILE]</job-xml>-->
+            <!--            <configuration>-->
+            <!--                <property>-->
+            <!--                    <name>[PROPERTY-NAME]</name>-->
+            <!--                    <value>[PROPERTY-VALUE]</value>-->
+            <!--                </property>-->
+            <!--            </configuration>-->
+            <jdbc-url>"jdbc:hive2://localhost:10000/default"</jdbc-url>
+            <!--            <password>[PASS]</password>-->
+            <script>hiveaction.hql</script>
+            <!--            <param>[PARAM-VALUE]</param>-->
+            <!--            <param>[PARAM-VALUE]</param>-->
+            <!--            <argument>[ARG-VALUE]</argument>-->
+            <!--            <argument>[ARG-VALUE]</argument>-->
+            <!--            <file>hiveaction.hql</file>-->
+            <!--            <archive>hiveaction.hql</archive>-->
         </hive2>
         <ok to="End"/>
         <error to="Kill"/>
     </action>
-
     <kill name="Kill">
-            <message>Flow Failes</message>
+        <message>Flow failed</message>
     </kill>
     <end name="End"/>
 </workflow-app>
