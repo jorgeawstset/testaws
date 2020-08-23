@@ -3,4 +3,4 @@ hadoop fs -copyFromLocal -f workflow.xml
 oozie jobs
 oozie job -config job.properties -run
 oozie jobs
-#oozie job -info XXX
+#oozie job -verbose -info XXX

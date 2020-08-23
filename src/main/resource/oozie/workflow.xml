@@ -15,7 +15,7 @@
             <!--                    <value>[PROPERTY-VALUE]</value>-->
             <!--                </property>-->
             <!--            </configuration>-->
-            <jdbc-url>"jdbc:hive2://localhost:10000/default"</jdbc-url>
+            <jdbc-url>"jdbc:hive2://ec2-18-222-153-249.us-east-2.compute.amazonaws.com:10000/default"</jdbc-url>
             <!--            <password>[PASS]</password>-->
             <script>hiveaction.hql</script>
             <!--            <param>[PARAM-VALUE]</param>-->
