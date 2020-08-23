@@ -1,3 +1,25 @@
+CREATE TABLE default.titanicS3 (
+Survived string,
+Pclass string,
+Name string,
+Sex string,
+Age string,
+SibSpo string,
+ParChil string,
+Fare string
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS
+INPUTFORMAT
+  'com.amazonaws.emr.s3select.hive.S3SelectableTextInputFormat'
+OUTPUTFORMAT
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION 's3://s3aawstest-testawss3-1dg0hwjszy9l6/input'
+TBLPROPERTIES (
+  "s3select.format" = "csv",
+  "s3select.headerInfo" = "ignore"
+);
+
 create table default.mytablej (
 field1 string,
 field2 string)

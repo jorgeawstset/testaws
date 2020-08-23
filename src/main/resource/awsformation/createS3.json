@@ -1,0 +1,10 @@
+{
+  "Resources": {
+    "S3TITANIC": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl" : "PublicRead"
+      }
+    }
+  }
+}
