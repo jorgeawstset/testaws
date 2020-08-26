@@ -30,8 +30,9 @@ VALUES
 ('A1B','DNS'),
 ('DND','LUY');
 
-ADD JAR /home/hadoop/testaws-1.0-SNAPSHOT.jar;
-ADD JAR /home/hadoop/scala-library-2.12.2.jar;
+
+ADD JAR hdfs:///user/hadoop/testaws-1.0-SNAPSHOT.jar;
+ADD JAR hdfs:///user/hadoop/scala-library-2.12.2.jar;
 CREATE FUNCTION CHANGELETTERS AS 'com.jorgeawstset.testaws.udf.hive.ChangeLetters';
 
 select field1, CHANGELETTERS(field1) as chg1, field2 from default.mytablej;

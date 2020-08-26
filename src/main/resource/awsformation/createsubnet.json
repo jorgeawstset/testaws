@@ -1,0 +1,13 @@
+{
+  "Resources": {
+    "uksubnet" : {
+      "Type" : "AWS::EC2::Subnet",
+      "Properties" : {
+        "VpcId" : "vpc-ad8cc7c5",
+        "CidrBlock" : "172.31.0.0/20",
+        "AvailabilityZone" : "eu-west-2",
+        "Tags" : [ { "Key" : "desc", "Value" : "SubnetforEMR" } ]
+      }
+    }
+  }
+}

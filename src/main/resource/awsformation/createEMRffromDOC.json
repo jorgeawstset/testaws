@@ -5,6 +5,8 @@
       "Type": "AWS::EMR::Cluster",
       "Properties": {
         "Instances": {
+          "Ec2KeyName" : "ukmyjorgeawstsetkeypair",
+          "HadoopVersion" : "Amazon 2.8.5",
           "MasterInstanceGroup": {
             "InstanceCount": 1,
             "InstanceType": "m5.xlarge",
@@ -12,21 +14,26 @@
             "Name": "cfnMaster"
           },
           "CoreInstanceGroup": {
-            "InstanceCount": 1,
+            "InstanceCount": 2,
             "InstanceType": "m5.xlarge",
             "Market": "ON_DEMAND",
-            "Name": "cfnCore"
+            "Name": "cfnWorker"
           },
           "TerminationProtected" : "false",
-          "Ec2SubnetId" : "subnet-e4e8268f"
+          "Ec2SubnetId" : "subnet-71a53c0b"
         },
+        "Applications": [
+          {"Name" : "Hive"},
+          {"Name" : "Hue"},
+          {"Name" : "Oozie"},
+          {"Name" : "Spark"}],
         "Name": "EMRCLUSTERjorge",
         "JobFlowRole" : "EMR_EC2_DefaultRole",
         "ServiceRole" : "EMR_DefaultRole",
         "ReleaseLabel" : "emr-5.30.1",
         "VisibleToAllUsers" : true,
-        "Tags": [ { "Key": "NameOfCluster",
-            "Value": "EMRwithHIVE" } ]
+        "LogUri":"s3://aws-logs-904237785730-eu-west-2/elasticmapreduce/",
+        "Tags": [ { "Key": "NameOfCluster", "Value": "UKEMRCF" } ]
       }
     }
   }
