@@ -6,24 +6,8 @@
     <start to="RUNHIVE"/>
     <action name="RUNHIVE">
         <hive2 xmlns="uri:oozie:hive2-action:1.0">
-            <!--            <resource-manager>[RESOURCE-MANAGER]</resource-manager>-->
-            <!--            <job-tracker>[JOB-TRACKER]</job-tracker>-->
-            <!--            <job-xml>[HIVE SETTINGS FILE]</job-xml>-->
-            <!--            <configuration>-->
-            <!--                <property>-->
-            <!--                    <name>[PROPERTY-NAME]</name>-->
-            <!--                    <value>[PROPERTY-VALUE]</value>-->
-            <!--                </property>-->
-            <!--            </configuration>-->
-            <jdbc-url>"jdbc:hive2://ec2-18-222-153-249.us-east-2.compute.amazonaws.com:10000/default"</jdbc-url>
-            <!--            <password>[PASS]</password>-->
+            <jdbc-url>${jdbcurl}</jdbc-url>
             <script>hiveaction.hql</script>
-            <!--            <param>[PARAM-VALUE]</param>-->
-            <!--            <param>[PARAM-VALUE]</param>-->
-            <!--            <argument>[ARG-VALUE]</argument>-->
-            <!--            <argument>[ARG-VALUE]</argument>-->
-            <!--            <file>hiveaction.hql</file>-->
-            <!--            <archive>hiveaction.hql</archive>-->
         </hive2>
         <ok to="End"/>
         <error to="Kill"/>
