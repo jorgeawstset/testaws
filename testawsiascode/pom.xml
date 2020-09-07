@@ -6,7 +6,7 @@
     <groupId>com.jorgeawstset.testaws</groupId>
     <artifactId>testawsiascode</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>testawsoozie</name>
+    <name>testawsiascode</name>
     <parent>
         <artifactId>testaws</artifactId>
         <groupId>com.jorgeawstset.testaws</groupId>

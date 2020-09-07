@@ -9,3 +9,7 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 testaws.iml
+testawsiascode/testawsiascode.iml
+testawsoozie/testawsoozie.iml
+testawssparkexample/testawssparkexample.iml
+testawsudf/testawsudf.iml

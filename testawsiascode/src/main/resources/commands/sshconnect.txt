@@ -1,4 +1,13 @@
-scp -i "myjorgeawstsetkeypair.pem" testaws-1.0-SNAPSHOT.jar scala-library-2.12.2.jar hiveaction.hql hiveaction.hql job.properties runoozie.sh workflow.xml hadoop@ec2-3-8-156-121.eu-west-2.compute.amazonaws.com:/home/hadoop/
+scp -i "myjorgeawstsetkeypair.pem" \
+testawsudf-1.0-SNAPSHOT.jar \
+scala-library-2.12.2.jar \
+testawssparkexample-1.0-SNAPSHOT.jar \
+runScript.sh hive.hql \
+hiveaction.hql \
+job.properties \
+runoozie.sh \
+workflow.xml \
+hadoop@ec2-3-8-156-121.eu-west-2.compute.amazonaws.com:/home/hadoop/
 ssh -i "myjorgeawstsetkeypair.pem" hadoop@ec2-3-8-156-121.eu-west-2.compute.amazonaws.com
 ssh -i "myjorgeawstsetkeypair.pem" -N -D 8157 hadoop@ec2-3-8-156-121.eu-west-2.compute.amazonaws.com
 http://ec2-3-8-156-121.eu-west-2.compute.amazonaws.com:8888/hue/

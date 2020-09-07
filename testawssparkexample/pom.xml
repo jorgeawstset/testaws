@@ -19,7 +19,7 @@
         <maven.compiler.version>3.3</maven.compiler.version>
         <maven.compiler.plugin>3.8.0</maven.compiler.plugin>
         <scala.version>2.12.10</scala.version>
-        <spark.core.version>2.4.0</spark.core.version>
+        <spark.core.version>2.4.6</spark.core.version>
     </properties>
     <dependencies>
         <dependency>
@@ -66,8 +66,16 @@
             <groupId>org.codehaus.janino</groupId>
             <version>3.0.8</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>com.jorgeawstset.testaws</groupId>
+            <artifactId>testawsudf</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
+        </dependency>
     </dependencies>
     <build>
         <pluginManagement>

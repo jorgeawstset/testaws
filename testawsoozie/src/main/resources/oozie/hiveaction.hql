@@ -15,7 +15,7 @@ INPUTFORMAT
   'com.amazonaws.emr.s3select.hive.S3SelectableTextInputFormat'
 OUTPUTFORMAT
   'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION 's3://s3aawstest-testawss3-1dg0hwjszy9l6/output'
+LOCATION 's3://s3titanicstack-s3titanic-18oef9fw4bsqk/output'
 TBLPROPERTIES (
   "s3select.format" = "csv",
   "s3select.headerInfo" = "ignore"
