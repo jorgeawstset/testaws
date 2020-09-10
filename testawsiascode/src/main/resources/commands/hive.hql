@@ -1,4 +1,4 @@
-CREATE TABLE default.titanicS3 (
+CREATE TABLE default.titanics3 (
 Survived string,
 Pclass string,
 Name string,
@@ -17,10 +17,10 @@ OUTPUTFORMAT
 LOCATION 's3://s3titanicstack-s3titanic-18oef9fw4bsqk/input'
 TBLPROPERTIES (
   "s3select.format" = "csv",
-  "s3select.headerInfo" = "ignore"
+  "skip.header.line.count" = "1"
 );
 
-CREATE TABLE if not exists default.titanicS3spark (
+CREATE TABLE if not exists default.titanics3spark (
 Survived string,
 Pclass string,
 Name string,
@@ -44,20 +44,3 @@ TBLPROPERTIES (
   "s3select.headerInfo" = "ignore"
 );
 
-create table default.mytablej (
-field1 string,
-field2 string)
-;
-
-INSERT INTO TABLE default.mytablej
-VALUES
-('A1B','DNS'),
-('DND','LUY');
-
-
-ADD JAR hdfs:///user/hadoop/testaws-1.0-SNAPSHOT.jar;
-ADD JAR hdfs:///user/hadoop/scala-library-2.12.2.jar;
-CREATE FUNCTION CHANGELETTERS AS 'com.jorgeawstset.testaws.udf.hive.ChangeLetters';
-
-select field1, CHANGELETTERS(field1) as chg1, field2 from default.mytablej;
-select sha2("A",512);

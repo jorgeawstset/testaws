@@ -22,5 +22,3 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Upload a Build Artifact via S3
-      uses: ebuckthal/s3-upload-artifact@v7

@@ -20,8 +20,10 @@ TBLPROPERTIES (
   "s3select.format" = "csv",
   "s3select.headerInfo" = "ignore"
 );
-ADD JAR hdfs:///user/hadoop/testaws-1.0-SNAPSHOT.jar;
+ADD JAR hdfs:///user/hadoop/testawsudf-1.0-SNAPSHOT.jar;
 ADD JAR hdfs:///user/hadoop/scala-library-2.12.2.jar;
+
+CREATE TEMPORARY FUNCTION CHANGELETTERS AS 'com.jorgeawstset.testaws.udf.hive.ChangeLetters';
 
 INSERT INTO TABLE default.titanicS3sha
 SELECT Survived, Pclass, Name, CHANGELETTERS(Name) as Namechanged, sha2(concat(Name,Age),512) as Namesha512,Sex, Age, SibSpo, ParChil, Fare string

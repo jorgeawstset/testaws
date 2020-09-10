@@ -9,10 +9,18 @@ object ConvertDriverTable {
   lazy val spark: SparkSession = SparkSession.builder()
     .master("local")
     .appName("Convert")
-    .config(
-      "spark.sql.shuffle.partitions",
-      "1"
-    ).getOrCreate()
+//    .config("hive.metastore.uris", "thrift://localhost:9083")
+//    .config("spark.sql.warehouse.dir", "/apps/hive/warehouse")
+    .enableHiveSupport()
+    .getOrCreate()
+
+//  lazy val spark: SparkSession = SparkSession.builder()
+//    .master("local")
+//    .appName("Convert")
+//    //    .config("hive.metastore.uris", "thrift://localhost:9083")
+//    //    .config("spark.sql.warehouse.dir", "/apps/hive/warehouse")
+//    .enableHiveSupport()
+//    .getOrCreate()
 
   def main(args: Array[String]):Unit = {
     println("Inside ConvertDriver")
@@ -21,7 +29,11 @@ object ConvertDriverTable {
     println("tableInput: " + tableInput)
     println("tableOutput: " + tableOutput)
     val inputDF = ReadTable.read(spark,tableInput)
+    inputDF.show()
+    println("inputDF")
     val outDF = ConvertPipeline.run(inputDF)
+    println("I have DF " + outDF)
+    outDF.show()
     WriteTable.save(outDF,tableOutput)
 
   }
